@@ -8,7 +8,7 @@ Doing this project I learned:
 - Tasks and backstack
 - Using AppLauncher as a home screen
 
-Screenshot of the app:
+Screenshot:
 
 ![alt tag](https://github.com/AnastasiaKarpenko/Andoroid_AppLauncher/blob/master/AppLauncher_screenshot.png)
 
