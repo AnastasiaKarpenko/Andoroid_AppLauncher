@@ -1,12 +1,10 @@
 package ws.tilda.anastasia.nerdlauncher;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -65,13 +63,13 @@ public class NerdLauncherFragment extends Fragment {
     private class ActivityHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private ResolveInfo mResolveInfo;
         private TextView mNameTextView;
-        private ImageView mIcon;
+        private ImageView mIconImageView;
 
 
         public ActivityHolder(View itemView) {
             super(itemView);
             mNameTextView = (TextView) itemView.findViewById(R.id.app_label);
-            mIcon = (ImageView) itemView.findViewById(R.id.app_icon);
+            mIconImageView = (ImageView) itemView.findViewById(R.id.app_icon);
         }
 
         public void bindActivity(ResolveInfo resolveInfo) {
@@ -79,7 +77,7 @@ public class NerdLauncherFragment extends Fragment {
             PackageManager pm = getActivity().getPackageManager();
             String appName = mResolveInfo.loadLabel(pm).toString();
             Drawable appIcon = mResolveInfo.loadIcon(pm);
-            mIcon.setImageDrawable(appIcon);
+            mIconImageView.setImageDrawable(appIcon);
             mNameTextView.setText(appName);
             mNameTextView.setOnClickListener(this);
         }
