@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -53,7 +54,53 @@ public class NerdLauncherFragment extends Fragment {
         });
 
         Log.i(TAG, "Found " + activities.size() + " activities.");
+        mRecyclerView.setAdapter(new ActivityAdapter(activities));
+    }
 
+    private class ActivityHolder extends RecyclerView.ViewHolder {
+        private ResolveInfo mResolveInfo;
+        private TextView mNameTextView;
+
+
+        public ActivityHolder(View itemView) {
+            super(itemView);
+            mNameTextView = (TextView) itemView;
+        }
+
+        public void bindActivity(ResolveInfo resolveInfo) {
+            mResolveInfo = resolveInfo;
+            PackageManager pm = getActivity().getPackageManager();
+            String appName = mResolveInfo.loadLabel(pm).toString();
+            mNameTextView.setText(appName);
+        }
+    }
+
+    private class ActivityAdapter extends RecyclerView.Adapter<ActivityHolder> {
+        private final List<ResolveInfo> mActivities;
+
+        public ActivityAdapter(List<ResolveInfo> activities) {
+            mActivities = activities;
+        }
+
+        @Override
+        public ActivityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+            View view = layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+
+            return new ActivityHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(ActivityHolder holder, int position) {
+            ResolveInfo resolveInfo = mActivities.get(position);
+            holder.bindActivity(resolveInfo);
+        }
+
+
+        @Override
+        public int getItemCount() {
+            return mActivities.size();
+        }
     }
 
 
