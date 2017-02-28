@@ -9,6 +9,7 @@ Doing this project I learned:
 - Using AppLauncher as a home screen
 
 Screenshot of the app:
-![alt tag] (https://github.com/AnastasiaKarpenko/Andoroid_AppLauncher/blob/master/AppLauncher_screenshot.png)
+
+![alt tag](https://github.com/AnastasiaKarpenko/Andoroid_AppLauncher/blob/master/AppLauncher_screenshot.png)
 
 
