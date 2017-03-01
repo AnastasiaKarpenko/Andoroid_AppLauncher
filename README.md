@@ -1,4 +1,4 @@
-# Andoroid_AppLauncher
+# Andoroid_NerdLauncher
 The app will display a list of apps installed on the device. Press a list item to launch the app.
 
 Doing this project I learned:
